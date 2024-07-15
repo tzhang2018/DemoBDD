@@ -99,7 +99,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("John is an active ParaBank customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.When(string.Format("they apply for a {0} dolloar loan", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("they apply for a {0} dollar loan", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
  testRunner.Then("the loan application is approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -143,9 +143,9 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("For loan amounts between 1000 and 100000 the result depnes on income")]
-        [NUnit.Framework.TestCaseAttribute("1000", "3000", "approved", null)]
-        [NUnit.Framework.TestCaseAttribute("50000", "3000", "approved", null)]
-        [NUnit.Framework.TestCaseAttribute("99999", "3000", "denied", null)]
+        [NUnit.Framework.TestCaseAttribute("1000", "500", "Approved", null)]
+        [NUnit.Framework.TestCaseAttribute("50000", "3000", "Approved", null)]
+        [NUnit.Framework.TestCaseAttribute("99999", "3000", "Denied", null)]
         public void ForLoanAmountsBetween1000And100000TheResultDepnesOnIncome(string amount, string income, string result, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -168,12 +168,9 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("John is an active ParaBank customer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 28
- testRunner.When(string.Format("they apply for a {0} dolloar loan", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("they apply for a {0} dolloar loan and their monthly income is {1}", amount, income), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.And(string.Format("their monthly income is {0}", income), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 30
  testRunner.Then(string.Format("the loan application is {0}", result), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

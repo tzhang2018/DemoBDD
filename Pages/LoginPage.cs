@@ -7,6 +7,7 @@ namespace DemoBDD.Pages
         public readonly ILocator txtUserName;
         public ILocator txtPassword;
         public ILocator btnLogin;
+
         public LoginPage(IPage page) : base(page)
         {
             txtUserName = this.page.Locator("//input[@name='username']");
@@ -14,10 +15,10 @@ namespace DemoBDD.Pages
             btnLogin = this.page.Locator("//input[@value='Log In']");
         }
 
-        public async void Login(string username, string password)
+        public async Task LoginAs(string username, string password)
         {
-            await txtUserName.FillAsync("john");
-            await txtPassword.FillAsync("demo");
+            await txtUserName.FillAsync(username);
+            await txtPassword.FillAsync(password);
             await btnLogin.ClickAsync();
         }
     }
