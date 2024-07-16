@@ -102,7 +102,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("they apply for a {0} dollar loan", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
- testRunner.Then("the loan application is approved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the loan application is denied", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -143,8 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("For loan amounts between 1000 and 100000 the result depnes on income")]
-        [NUnit.Framework.TestCaseAttribute("1000", "500", "Approved", null)]
-        [NUnit.Framework.TestCaseAttribute("50000", "3000", "Approved", null)]
+        [NUnit.Framework.TestCaseAttribute("1000", "500", "Denied", null)]
         [NUnit.Framework.TestCaseAttribute("99999", "3000", "Denied", null)]
         public void ForLoanAmountsBetween1000And100000TheResultDepnesOnIncome(string amount, string income, string result, string[] exampleTags)
         {

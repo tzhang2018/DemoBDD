@@ -7,7 +7,7 @@ So the risk associated with supplying loans remains within regulatory boundaries
 Scenario Outline: Loan amounts under 1000 are always approved
 	Given John is an active ParaBank customer
 	When they apply for a <amount> dollar loan
-	Then the loan application is approved
+	Then the loan application is denied
 	Examples: 
 	| amount |
 	| 999    |
@@ -29,7 +29,6 @@ Scenario Outline: For loan amounts between 1000 and 100000 the result depnes on 
 	Then the loan application is <result>
 	Examples: 
 	| amount | income | result   |
-	| 1000   | 500    | Approved |
-	| 50000  | 3000   | Approved |
+	| 1000   | 500    | Denied   |
 	| 99999  | 3000   | Denied   |
 

@@ -10,6 +10,7 @@ namespace DemoBDD.Pages
         public ILocator lbxFromAccountNo { get; set; }
         public ILocator btnApplyNow { get; set; }
         public ILocator tdLoanStatus { get; set; }
+        public ILocator lblLoanTitle { get; set; }
 
         public LoanPage(IPage page) : base(page)
         {
@@ -18,6 +19,7 @@ namespace DemoBDD.Pages
             lbxFromAccountNo = this.page.Locator("id=fromAccountId");
             btnApplyNow = this.page.GetByText("Apply Now");
             tdLoanStatus = this.page.Locator("id=loanStatus");
+            lblLoanTitle = this.page.GetByText("Loan Request Processed");
         }
 
         public async Task ApplyLoan(string loanAmount, string downPayment, string fromAccount)
@@ -26,10 +28,14 @@ namespace DemoBDD.Pages
             await txtDownPayments.FillAsync(downPayment);
             await lbxFromAccountNo.SelectOptionAsync(fromAccount);
             await btnApplyNow.ClickAsync();
+            await lblLoanTitle.WaitForAsync(new LocatorWaitForOptions
+            {
+                State = WaitForSelectorState.Visible,
+            });
             await page.ScreenshotAsync(new PageScreenshotOptions
             {
                 FullPage = true,
-                Path = "ApplyLoan",
+                Path = "ApplyLoan.png",
                 Type = ScreenshotType.Png
             });
         }
