@@ -31,7 +31,7 @@ jobs:
           dotnet-version: '7.0.x'
 
       # Runs a set of commands using the runners shell
-      - uses: actions/cryptic-wizard/run-specflow-tests@v1.3.3
+      - uses: cryptic-wizard/run-specflow-tests@v1.3.3
         with:
           test-assembly-path: DemoBDD\bin\Release\net7.0
           test-assembly-dll: DemoBDD.dll
